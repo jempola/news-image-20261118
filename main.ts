@@ -6,12 +6,20 @@
 // Run locally with: mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 // (the grader sets MAKEFUN_OUTPUT_DIR to /output itself).
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 mkdirSync(outDir, { recursive: true });
-copyFileSync(
-  new URL('./entry.png', import.meta.url),
-  join(outDir, 'entry.png'),
-);
+const sourcePath = new URL('./entry.png', import.meta.url);
+const outPath = join(outDir, 'entry.png');
+copyFileSync(sourcePath, outPath);
+
+// Determinism guard: the grader runs the program twice and requires
+// identical bytes, so read the written file back and verify it matches
+// the source exactly; fail loudly instead of shipping a corrupt copy.
+const written = readFileSync(outPath);
+const source = readFileSync(sourcePath);
+if (!written.equals(source)) {
+  throw new Error('entry.png mismatch: written output differs from source');
+}
