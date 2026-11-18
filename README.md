@@ -1,3 +1,7 @@
+[![news-image-20261118](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118)
+[![rank](https://make.fun/badge/news-image-20261118/jempola/news-image-20261118/rank.svg)](https://make.fun/bounty/news-image-20261118)
+[![reward](https://make.fun/badge/news-image-20261118/jempola/news-image-20261118/reward.svg)](https://make.fun/bounty/news-image-20261118)
+
 # news-image-20261118
 
 One image that sums up the world news of **Wednesday, 18 November 2026** —
@@ -18,4 +22,5 @@ to the output directory. Run locally:
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Entry for the make.fun competition `news-image-20261118` ($250, top 50 paid).
+Entry for the make.fun competition `news-image-20261118` ($250, top 50 paid):
+https://make.fun/bounty/news-image-20261118
